@@ -1,7 +1,15 @@
 import React from "react";
 import Navbar from "../Navbar";
+import { useForm } from "react-hook-form";
 
 function AddCity() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
   // id	Country	City	Population	Edit	Delete
   // 1	India	Delhi	19,000,000	Edit	Delete
   // 2	SriLanka	Colombo	5,600,000	Edit	Delete
@@ -11,27 +19,28 @@ function AddCity() {
       {" "}
       <Navbar />
       <h1>Add City</h1>
-      <form className="row g-3 w-50 m-auto p-4">
+      <form
+        className="row g-3 w-50 m-auto p-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="col-md-6">
-          <label for="inputEmail4" className="form-label">
-            Country
-          </label>
+          <label className="form-label">Country</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
-            id="inputEmail4"
             placeholder="Country"
+            {...register("country", { required: true })}
+            required
           />
         </div>
         <div className="col-md-6">
-          <label for="inputPassword4" className="form-label">
-            City
-          </label>
+          <label className="form-label">City</label>
           <input
-            type="password"
+            type="text"
             className="form-control"
-            id="inputPassword4"
             placeholder="City"
+            {...register("city", { required: true })}
+            required
           />
         </div>
         <div className="col-12">
@@ -43,6 +52,8 @@ function AddCity() {
             className="form-control"
             id="inputAddress"
             placeholder="Population"
+            {...register("population", { required: true })}
+            required
           />
         </div>
 

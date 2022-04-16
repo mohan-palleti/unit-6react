@@ -2,18 +2,16 @@
   "countries": [
     {
       "id": 1,
-      "title": "json-server",
+      "country": "india",
       "author": "typicode"
     }
   ],
-  "comments": [
+  "cities": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "country": "india",
+      "delhi": 235646
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
+  
 }

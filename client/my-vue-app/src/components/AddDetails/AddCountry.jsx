@@ -1,21 +1,31 @@
 import React from "react";
 import Navbar from "../Navbar";
-
+import { useForm } from "react-hook-form";
 function AddCountry() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <div>
       <Navbar />
       <h1>Add Country</h1>
-      <form className="row g-3 w-50 m-auto p-4">
+      <form
+        className="row g-3 w-50 m-auto p-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="col-md-6">
-          <label for="inputEmail4" className="form-label">
-            Country
-          </label>
+          <label className="form-label">Country</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="inputEmail4"
             placeholder="Country"
+            required
+            {...register("country", { required: true })}
           />
         </div>
 
