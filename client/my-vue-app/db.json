@@ -8,22 +8,16 @@
   ],
   "cities": [
     {
-      "id": 1,
-      "country": "india",
-      "city": "Delhi",
-      "population": 4154654
-    },
-    {
       "country": "india",
       "city": "vizag",
-      "population": "236564",
-      "id": 2
+      "population": "34564",
+      "id": 4
     },
     {
-      "country": "india",
-      "city": "guntur",
-      "population": "12231212",
-      "id": 3
+      "country": "INDIA",
+      "city": "pune",
+      "population": "78989",
+      "id": 5
     }
   ]
 }

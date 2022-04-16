@@ -29,6 +29,21 @@ function Table() {
     dispatch(getData(data));
   }
 
+  function deleteCity(i) {
+    axios.delete(`http://localhost:3004/cities/${i}`).then((res) => {
+      // dispatch(getData(res.data));
+      // setSort(!sort);
+      axios.get("http://localhost:3004/cities").then((res) => {
+        console.log("fetching success", res.data);
+        //setCitiesData(res.data);
+        dispatch(getData(res.data));
+        setCitiesData(res.data);
+      });
+
+      console.log(res);
+    });
+  }
+
   return (
     <div>
       <div>
@@ -73,7 +88,13 @@ function Table() {
                 <td>{ele.city}</td>
                 <td>{ele.population}</td>
                 <td>Edit</td>
-                <td>Delete</td>
+                <td
+                  onClick={() => {
+                    deleteCity(ele.id);
+                  }}
+                >
+                  Delete
+                </td>
               </tr>
             </>
           ))}
