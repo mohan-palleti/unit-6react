@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddCity() {
+  const navigate = useNavigate();
+  const [adding, setAdding] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios.post("http://localhost:3004/cities", data).then((res) => {
+      setAdding(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    });
+    console.log(data);
+  };
   // id	Country	City	Population	Edit	Delete
   // 1	India	Delhi	19,000,000	Edit	Delete
   // 2	SriLanka	Colombo	5,600,000	Edit	Delete
@@ -61,6 +73,7 @@ function AddCity() {
           <button type="submit" className="btn btn-primary">
             ADD
           </button>
+          {adding ? <p>Adding...</p> : ""}
         </div>
       </form>
     </div>

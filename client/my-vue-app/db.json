@@ -10,8 +10,20 @@
     {
       "id": 1,
       "country": "india",
-      "delhi": 235646
+      "city": "Delhi",
+      "population": 4154654
+    },
+    {
+      "country": "india",
+      "city": "vizag",
+      "population": "236564",
+      "id": 2
+    },
+    {
+      "country": "india",
+      "city": "guntur",
+      "population": "12231212",
+      "id": 3
     }
   ]
-  
 }
